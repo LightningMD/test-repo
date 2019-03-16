@@ -5,6 +5,7 @@
 
     <body>
         <h1>NPI Fax Search - File Generator</h1>
+        <h4>The NPI database will only allow up to 1200 records to be pulled, you can set the skip to keep moving up in the database and try for more results.</h4>
         <label>CITY</label>
         <input type="text" name="city" id="city">
         <br><br>
@@ -71,6 +72,20 @@
         <label>TAXONOMY CODE</label>
         <input type="text" name="taxonomy" id="taxonomy">
         <br><br>
+        <select name="skip" id="skip">
+        	<option value="0">0</option>
+        	<option value="1200">1200</option>
+        	<option value="2400">2400</option>
+        	<option value="3600">3600</option>
+        	<option value="4800">4800</option>
+        	<option value="6000">6000</option>
+        	<option value="7200">7200</option>
+        	<option value="8400">8400</option>
+        	<option value="9600">9600</option>
+        	<option value="10800">10800</option>
+        	<option value="12000">12000</option>
+        </select>
+        <br><br>
         <button type="button" id="generate">Generate File</button>
     </body>
 </html>
@@ -83,8 +98,9 @@
         var state = $('#state').val();
         var zip = $('#zip').val();
         var taxonomy = $('#taxonomy').val();
+        var skip = $('#skip').val();
         
-        window.open('npi.php?city=' + $('input[name="city"]').val() +'&state=' + $('select[name="state"]').val() +'&zip=' + $('input[name="zip"]').val() +'&taxonomy=' + $('input[name="taxonomy"]').val());
+        window.open('npi.php?skip='+ $('select[name="skip"]').val() + '&city=' + $('input[name="city"]').val() +'&state=' + $('select[name="state"]').val() +'&zip=' + $('input[name="zip"]').val() +'&taxonomy=' + $('input[name="taxonomy"]').val());
         
         
        
